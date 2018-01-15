@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  product.api:
+    image: product.api
+    build:
+      context: .
+      dockerfile: src/Services/Product.Api/Dockerfile
+
+  vendorproduct.api:
+    image: vendorproduct.api
+    build:
+      context: .
+      dockerfile: src/Services/VendorProduct.Api/Dockerfile
+
