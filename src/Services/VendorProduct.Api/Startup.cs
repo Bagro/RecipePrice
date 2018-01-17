@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using VendorProduct.Api.Interfaces;
 using VendorProduct.Api.Models;
+using VendorProduct.Api.Repositories;
 
 namespace VendorProduct.Api
 {
@@ -27,6 +29,9 @@ namespace VendorProduct.Api
                 options.Database
                     = Configuration.GetSection("MongoConnection:Database").Value;
             });
+
+            services.AddSingleton<IVendorProductContext, VendorProductContext>();
+            services.AddTransient<IVendorProductRepository, VendorProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

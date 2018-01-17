@@ -19,7 +19,7 @@ namespace Vendor.Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public async Task<IActionResult> AllProducts([FromQuery]int pageSize = 25, [FromQuery]int pageIndex = 0)
+        public async Task<IActionResult> AllVendors([FromQuery]int pageSize = 25, [FromQuery]int pageIndex = 0)
         {
             var paginatedItems = await _vendorRepository.GetAll(pageSize, pageIndex);
 
