@@ -16,6 +16,6 @@ namespace VendorProduct.Api
             _database = client.GetDatabase(settings.Value.Database);
         }
 
-        public IMongoCollection<Models.VendorProduct> VendorProducts => _database.GetCollection<Models.VendorProduct>("vendorProduct");
+        public IMongoCollection<Models.VendorProduct> VendorProducts => _database.GetCollection<Models.VendorProduct>(nameof(Models.VendorProduct).ToLower());
     }
 }

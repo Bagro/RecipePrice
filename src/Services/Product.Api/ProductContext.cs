@@ -16,12 +16,6 @@ namespace Product.Api
             _database = client.GetDatabase(settings.Value.Database);
         }
 
-        public IMongoCollection<Models.Product> Products
-        {
-            get
-            {
-                return _database.GetCollection<Models.Product>("product");
-            }
-        }
+        public IMongoCollection<Models.Product> Products => _database.GetCollection<Models.Product>(nameof(Models.Product).ToLower());
     }
 }
